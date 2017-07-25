@@ -1,0 +1,1081 @@
+FORMAT: 1A
+HOST: https://api.ritekit.com
+# RiteKit API
+
+RiteKit API is based on REST principles.
+
+Authentication uses standard OAuth 2.0 process
+
+##Getting started
+1. Sign up for [RiteKit](https://ritekit.com/)
+1. Go to [developer dashboard](https://ritekit.com/developer/dashboard/)
+1. Click "Create a token" button to get your **Client ID** and **Client secret**
+1. Study the documentation below (for more info on oAuth go to http://oauth.net/)
+1. When you reach your free limit of calls per month, [upgrade to paid tiers](https://ritekit.com/developer/)
+
+## Options for authorizing API Calls
+
+
+#### A) Using Client ID directly
+
+You can directly connect to our API using your **client ID** by sending it as a GET query parameter. This option is simple (no need for oAuth) but it should be used only in case the Client ID is not exposed publicly.
+
+    GET  https://api.ritekit.com/v1/stats/basic/php?client_id=292c6912e7710c838347ae178b4a
+
+
+#### B) Using Access token (oAuth 2.0)
+Once you have valid Access token, you can access our API by sending the token in the Authorization header bearer or as a query Access token. See the oAuth 2.0 section to learn how to get Access token and keep refreshing it.
+
+    Authorization: Bearer xxxx
+
+Or
+
+    GET  https://api.ritekit.com/v1/stats/basic/php?access_token=292c6912e7710c838347ae178b4a
+
+
+## oAuth 2.0
+
+![oauthschema](https://cdn.ritekit.com/assets/media/1/oauth-simple.png)
+
+### Get Access Token
+
+Use your Client Credentials to get the token.
+
+    POST   https://ritekit.com/oauth/token
+
+           grant_type=client_credentials
+           &client_id=CLIENT_ID
+           &client_secret=CLIENT_SECRET
+           &scope=data
+
+- [required] grant_type - client_credentials
+- [required] client_id (CLIENT ID)
+- [required] client_secret (CLIENT SECRET)
+- [required] (always use scope=data)
+
+
+#### Response
+
+    {
+        "access_token":292c6912e7710c838347ae178b4a,
+        "token_type":"bearer",
+        "expires_in": 3600,
+        "refresh_token":292c6912e7710c838347ae178b4a,
+    }
+
+
+### Refresh token
+
+Every Access token has a lifetime. You can use Refresh token to request a new Access Token.
+
+
+    POST   https://ritekit.com/oauth/token
+
+           grant_type=refresh_token
+           &refresh_token=REFRESH_TOKEN
+           &client_id=CLIENT_ID
+           &scope=data
+
+- [required] grant_type - refresh_token
+- [required] refresh_token - (REFRESH TOKEN) the refresh token you got from the expired token
+- [required] client_id (CLIENT ID)
+- [required] client_secret (CLIENT SECRET)
+- [required] scope (always use scope=data)
+
+
+#### Response
+
+    {
+        "access_token":292c6912e7710c838347ae178b4a,
+        "token_type":"bearer",
+        "expires_in": 3600,
+        "refresh_token":292c6912e7710c838347ae178b4a,
+    }
+
+
+## Hashtags [/v1/stats/]
+
+### Auto-Hashtag [GET /v1/stats/auto-hashtag?post={post}]
+
+Returns auto-hashtagged text of the post.
+
++ Parameters
+
+    + post (string, `Is artificial intelligence the future of customer service?`) ... Text of the post
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "result": true,
+                "code": 200,
+                "message": "OK",
+                "post": "Is artificial intelligence the #future of #CustomerService?"
+            }
+
+
+### Hashtag Suggestions [GET /v1/stats/hashtag-suggestions/{topic}]
+
+Returns list of hashtag suggestions and their real-time stats for a given topic
+
++ Parameters
+
+    + topic (string, `seo`) ... Topic
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "result": true,
+                "code": 200,
+                "message": "OK",
+                "hashtag": "seo",
+                "data": [
+                    {
+                        "hashtag": "seo",
+                        "tag": "seo",
+                        "tweets": 1183,
+                        "exposure": 5754742,
+                        "retweets": 450,
+                        "images": 60.1859665,
+                        "links": 97.2104797,
+                        "mentions": 6.6779375,
+                        "color": 3,
+                        "frequency": 9.986
+                    },
+                    {
+                        "hashtag": "marketing",
+                        "tag": "marketing",
+                        "tweets": 1871,
+                        "exposure": 20597012,
+                        "retweets": 825,
+                        "images": 42.757885,
+                        "links": 91.5018692,
+                        "mentions": 14.4842329,
+                        "color": 3,
+                        "frequency": 0.956
+                    },
+                    {
+                        "hashtag": "google",
+                        "tag": "google",
+                        "tweets": 471,
+                        "exposure": 1720862,
+                        "retweets": 125,
+                        "images": 42.4628448,
+                        "links": 91.0828018,
+                        "mentions": 10.6157112,
+                        "color": 3,
+                        "frequency": 0.908
+                    },
+                    {
+                        "hashtag": "website",
+                        "tag": "website",
+                        "tweets": 317,
+                        "exposure": 1368658,
+                        "retweets": 45,
+                        "images": 68.4542618,
+                        "links": 97.160881,
+                        "mentions": 1.2618296,
+                        "color": 3,
+                        "frequency": 0.812
+                    },
+                    {
+                        "hashtag": "blog",
+                        "tag": "blog",
+                        "tweets": 633,
+                        "exposure": 5794333,
+                        "retweets": 184,
+                        "images": 35.5450249,
+                        "links": 95.4186401,
+                        "mentions": 12.4802532,
+                        "color": 3,
+                        "frequency": 0.717
+                    },
+                    {
+                        "hashtag": "wordpress",
+                        "tag": "wordpress",
+                        "tweets": 475,
+                        "exposure": 1263600,
+                        "retweets": 121,
+                        "images": 56.2105255,
+                        "links": 98.3157883,
+                        "mentions": 9.6842108,
+                        "color": 3,
+                        "frequency": 0.478
+                    },
+                    {
+                        "hashtag": "web",
+                        "tag": "web",
+                        "tweets": 279,
+                        "exposure": 450050,
+                        "retweets": 59,
+                        "images": 52.3297501,
+                        "links": 93.9068069,
+                        "mentions": 6.0931902,
+                        "color": 3,
+                        "frequency": 0.43
+                    },
+                    {
+                        "hashtag": "digitalmarketing",
+                        "tag": "digitalmarketing",
+                        "tweets": 483,
+                        "exposure": 6609083,
+                        "retweets": 434,
+                        "images": 24.2236023,
+                        "links": 89.6480331,
+                        "mentions": 22.3602486,
+                        "color": 3,
+                        "frequency": 0.43
+                    },
+                    {
+                        "hashtag": "webdesign",
+                        "tag": "webdesign",
+                        "tweets": 242,
+                        "exposure": 2074092,
+                        "retweets": 50,
+                        "images": 41.3223152,
+                        "links": 89.6694183,
+                        "mentions": 4.9586778,
+                        "color": 3,
+                        "frequency": 0.382
+                    },
+                    {
+                        "hashtag": "socialmedia",
+                        "tag": "socialmedia",
+                        "tweets": 908,
+                        "exposure": 10920012,
+                        "retweets": 517,
+                        "images": 23.3480167,
+                        "links": 90.8590317,
+                        "mentions": 24.7797356,
+                        "color": 3,
+                        "frequency": 0.382
+                    }
+                ]
+            }
+
+
+### Hashtag Stats [GET /v1/stats/multiple-hashtags{?tags}]
+
+Returns real-time stats for up to 100 hashtags (updated hourly).
+
++ Parameters
+
+    + tags (array, `jobs,hello`) ... Hashtag(s) without # mark
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "result": true,
+                "code": 200,
+                "hashtags": [
+                    "jobs",
+                    "hello"
+                ],
+                "message": "OK",
+                "stats": [
+                    {
+                        "hashtag": "jobs",
+                        "tag": "jobs",
+                        "tweets": 2362,
+                        "exposure": 7939121,
+                        "retweets": 180,
+                        "images": 0.033446231,
+                        "links": 0.9915325930000001,
+                        "mentions": 0.024555460999999997,
+                        "color": 3
+                    },
+                    {
+                        "hashtag": "hello",
+                        "tag": "hello",
+                        "tweets": 29,
+                        "exposure": 7908,
+                        "retweets": 54,
+                        "images": 0.13793103199999998,
+                        "links": 0.7241379550000001,
+                        "mentions": 0.0,
+                        "color": 2
+                    }
+                ],
+                "color": [
+                    "Unused",
+                    "Overused",
+                    "Good",
+                    "Great"
+                ]
+            }
+
+
+### Hashtag History [GET /v1/stats/history/{hashtag}]
+
+Returns historical stats for a given hashtag from the last 30 days
+
++ Parameters
+
+    + hashtag (string, `job`) ... Hashtag without # mark
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "result": true,
+                "code": 200,
+                "message": "OK",
+                "hashtag": "job",
+                "data": [
+                    {
+                        "date": "2017-06-24",
+                        "tweets": 149700,
+                        "retweets": 2900,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.0,
+                        "color": 3,
+                        "exposure": 120306800
+                    },
+                    {
+                        "date": "2017-06-25",
+                        "tweets": 145400,
+                        "retweets": 3200,
+                        "links": 1.0,
+                        "images": 0.02,
+                        "mentions": 0.0,
+                        "color": 3,
+                        "exposure": 123063200
+                    },
+                    {
+                        "date": "2017-06-26",
+                        "tweets": 154300,
+                        "retweets": 4800,
+                        "links": 0.99,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 113558500
+                    },
+                    {
+                        "date": "2017-06-27",
+                        "tweets": 156000,
+                        "retweets": 4000,
+                        "links": 1.0,
+                        "images": 0.02,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 132732200
+                    },
+                    {
+                        "date": "2017-06-28",
+                        "tweets": 147500,
+                        "retweets": 5500,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 190393800
+                    },
+                    {
+                        "date": "2017-06-29",
+                        "tweets": 157700,
+                        "retweets": 3800,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 150459900
+                    },
+                    {
+                        "date": "2017-06-30",
+                        "tweets": 26100,
+                        "retweets": 1000,
+                        "links": 1.0,
+                        "images": 0.05,
+                        "mentions": 0.02,
+                        "color": 3,
+                        "exposure": 37829700
+                    },
+                    {
+                        "date": "2017-07-01",
+                        "unique": 0,
+                        "retweets": 0,
+                        "links": 0,
+                        "images": 0,
+                        "mentions": 0,
+                        "exposure": 0,
+                        "tweets": 0,
+                        "color": 0
+                    },
+                    {
+                        "date": "2017-07-02",
+                        "tweets": 122100,
+                        "retweets": 2400,
+                        "links": 1.0,
+                        "images": 0.02,
+                        "mentions": 0.0,
+                        "color": 3,
+                        "exposure": 91003500
+                    },
+                    {
+                        "date": "2017-07-03",
+                        "tweets": 154800,
+                        "retweets": 2600,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 161241400
+                    },
+                    {
+                        "date": "2017-07-04",
+                        "tweets": 146200,
+                        "retweets": 3600,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 126351800
+                    },
+                    {
+                        "date": "2017-07-05",
+                        "tweets": 155000,
+                        "retweets": 4900,
+                        "links": 0.99,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 126678900
+                    },
+                    {
+                        "date": "2017-07-06",
+                        "tweets": 157400,
+                        "retweets": 7000,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 115540500
+                    },
+                    {
+                        "date": "2017-07-07",
+                        "tweets": 163800,
+                        "retweets": 3400,
+                        "links": 1.0,
+                        "images": 0.02,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 148924500
+                    },
+                    {
+                        "date": "2017-07-08",
+                        "tweets": 143300,
+                        "retweets": 3300,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 119823700
+                    },
+                    {
+                        "date": "2017-07-09",
+                        "tweets": 130900,
+                        "retweets": 3100,
+                        "links": 1.0,
+                        "images": 0.02,
+                        "mentions": 0.0,
+                        "color": 3,
+                        "exposure": 133067200
+                    },
+                    {
+                        "date": "2017-07-10",
+                        "tweets": 140200,
+                        "retweets": 5300,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 129101400
+                    },
+                    {
+                        "date": "2017-07-11",
+                        "tweets": 153500,
+                        "retweets": 4900,
+                        "links": 1.0,
+                        "images": 0.04,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 132328100
+                    },
+                    {
+                        "date": "2017-07-12",
+                        "tweets": 154800,
+                        "retweets": 4200,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 135728800
+                    },
+                    {
+                        "date": "2017-07-13",
+                        "tweets": 150100,
+                        "retweets": 4200,
+                        "links": 1.0,
+                        "images": 0.02,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 117356400
+                    },
+                    {
+                        "date": "2017-07-14",
+                        "tweets": 149900,
+                        "retweets": 3700,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 127917200
+                    },
+                    {
+                        "date": "2017-07-15",
+                        "tweets": 140000,
+                        "retweets": 3300,
+                        "links": 1.0,
+                        "images": 0.02,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 123001600
+                    },
+                    {
+                        "date": "2017-07-16",
+                        "tweets": 140400,
+                        "retweets": 3700,
+                        "links": 1.0,
+                        "images": 0.02,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 98735200
+                    },
+                    {
+                        "date": "2017-07-17",
+                        "tweets": 132900,
+                        "retweets": 2900,
+                        "links": 1.0,
+                        "images": 0.04,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 178846200
+                    },
+                    {
+                        "date": "2017-07-18",
+                        "tweets": 144400,
+                        "retweets": 4900,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 207485900
+                    },
+                    {
+                        "date": "2017-07-19",
+                        "tweets": 147700,
+                        "retweets": 5400,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 144647600
+                    },
+                    {
+                        "date": "2017-07-20",
+                        "tweets": 153700,
+                        "retweets": 4000,
+                        "links": 1.0,
+                        "images": 0.02,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 146297300
+                    },
+                    {
+                        "date": "2017-07-21",
+                        "tweets": 159300,
+                        "retweets": 4700,
+                        "links": 1.0,
+                        "images": 0.03,
+                        "mentions": 0.01,
+                        "color": 3,
+                        "exposure": 151610900
+                    },
+                    {
+                        "date": "2017-07-22",
+                        "tweets": 142100,
+                        "retweets": 3200,
+                        "links": 1.0,
+                        "images": 0.01,
+                        "mentions": 0.0,
+                        "color": 3,
+                        "exposure": 201673600
+                    },
+                    {
+                        "date": "2017-07-23",
+                        "tweets": 137500,
+                        "retweets": 3900,
+                        "links": 1.0,
+                        "images": 0.01,
+                        "mentions": 0.0,
+                        "color": 3,
+                        "exposure": 124774800
+                    }
+                ],
+                "color": [
+                    "Unused",
+                    "Overused",
+                    "Good",
+                    "Great"
+                ]
+            }
+
+
+### Trending Hashtags [GET /v1/search/trending{?green,latin}]
+
+Returns list of hashtags currently trending on Twitter
+
++ Parameters
+
+    + green = `1` (optional, boolean) ... Restrict results only to green hashtags. Hides overused (red) hashtags.
+    + latin = `1` (optional, boolean) ... Restrict results only to hashtags with latin characters
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "result": true,
+                "message": "OK",
+                "code": 200,
+                "tags": [
+                    {
+                        "tag": "gameofthrones",
+                        "tweets": 6671,
+                        "retweets": 10946,
+                        "exposure": 58892200,
+                        "links": 0.11498,
+                        "photos": 0.16804,
+                        "mentions": 0.0718,
+                        "color": 3
+                    },
+                    {
+                        "tag": "giveaway",
+                        "tweets": 5854,
+                        "retweets": 2075,
+                        "exposure": 4549338,
+                        "links": 0.99283,
+                        "photos": 0.01281,
+                        "mentions": 0.42911,
+                        "color": 3
+                    },
+                    {
+                        "tag": "rayito",
+                        "tweets": 5583,
+                        "retweets": 738,
+                        "exposure": 1059717,
+                        "links": 0.06054,
+                        "photos": 0.03063,
+                        "mentions": 0.93821,
+                        "color": 3
+                    },
+                    {
+                        "tag": "lalobritotrendy",
+                        "tweets": 5579,
+                        "retweets": 304,
+                        "exposure": 2263475,
+                        "links": 0.00143,
+                        "photos": 0.00215,
+                        "mentions": 0.00143,
+                        "color": 3
+                    },
+                    {
+                        "tag": "sofiareyestrendy",
+                        "tweets": 5358,
+                        "retweets": 67,
+                        "exposure": 516692,
+                        "links": 0.00075,
+                        "photos": 0.00075,
+                        "mentions": 0.00075,
+                        "color": 3
+                    },
+                    {
+                        "tag": "job",
+                        "tweets": 4979,
+                        "retweets": 163,
+                        "exposure": 4918142,
+                        "links": 0.99578,
+                        "photos": 0.02772,
+                        "mentions": 0.00924,
+                        "color": 3
+                    },
+                    {
+                        "tag": "trecru",
+                        "tweets": 4917,
+                        "retweets": 25,
+                        "exposure": 85700,
+                        "links": 0.99898,
+                        "photos": 0.99817,
+                        "mentions": 0.0,
+                        "color": 3
+                    },
+                    {
+                        "tag": "newprofilepic",
+                        "tweets": 4725,
+                        "retweets": 2317,
+                        "exposure": 3556625,
+                        "links": 0.00169,
+                        "photos": 0.99725,
+                        "mentions": 0.00889,
+                        "color": 3
+                    },
+                    {
+                        "tag": "veranomtv2017",
+                        "tweets": 4579,
+                        "retweets": 100,
+                        "exposure": 24400,
+                        "links": 0.00371,
+                        "photos": 0.0,
+                        "mentions": 0.0,
+                        "color": 3
+                    },
+                    {
+                        "tag": "wwebattleground",
+                        "tweets": 4546,
+                        "retweets": 4204,
+                        "exposure": 89980921,
+                        "links": 0.08337,
+                        "photos": 0.11087,
+                        "mentions": 0.19336,
+                        "color": 3
+                    },
+                    {
+                        "tag": "hadith",
+                        "tweets": 4492,
+                        "retweets": 125,
+                        "exposure": 5516354,
+                        "links": 0.0,
+                        "photos": 0.0,
+                        "mentions": 0.0,
+                        "color": 3
+                    },
+                    {
+                        "tag": "quran",
+                        "tweets": 4083,
+                        "retweets": 184,
+                        "exposure": 6069829,
+                        "links": 0.04604,
+                        "photos": 0.00196,
+                        "mentions": 0.00196,
+                        "color": 3
+                    },
+                    {
+                        "tag": "news",
+                        "tweets": 3871,
+                        "retweets": 1117,
+                        "exposure": 35953229,
+                        "links": 0.9504,
+                        "photos": 0.155,
+                        "mentions": 0.07957,
+                        "color": 3
+                    },
+                    {
+                        "tag": "gots7",
+                        "tweets": 3533,
+                        "retweets": 4417,
+                        "exposure": 12840088,
+                        "links": 0.06001,
+                        "photos": 0.13331,
+                        "mentions": 0.04727,
+                        "color": 3
+                    },
+                    {
+                        "tag": "hiring",
+                        "tweets": 3512,
+                        "retweets": 67,
+                        "exposure": 3617262,
+                        "links": 0.99658,
+                        "photos": 0.00484,
+                        "mentions": 0.00484,
+                        "color": 3
+                    },
+                    {
+                        "tag": "np",
+                        "tweets": 3117,
+                        "retweets": 1371,
+                        "exposure": 25585946,
+                        "links": 0.83029,
+                        "photos": 0.05197,
+                        "mentions": 0.29676,
+                        "color": 3
+                    },
+                    {
+                        "tag": "dannapaola",
+                        "tweets": 3062,
+                        "retweets": 326,
+                        "exposure": 1734171,
+                        "links": 0.00261,
+                        "photos": 0.00261,
+                        "mentions": 0.00392,
+                        "color": 3
+                    },
+                    {
+                        "tag": "isabellacastillo",
+                        "tweets": 3004,
+                        "retweets": 142,
+                        "exposure": 1403742,
+                        "links": 0.00133,
+                        "photos": 0.00266,
+                        "mentions": 0.00133,
+                        "color": 3
+                    },
+                    {
+                        "tag": "tuitutil",
+                        "tweets": 2942,
+                        "retweets": 29,
+                        "exposure": 5073921,
+                        "links": 0.99864,
+                        "photos": 0.0,
+                        "mentions": 0.14446,
+                        "color": 3
+                    }
+                ]
+            }
+
+
+## Emoji section [/v1/emoji/]
+
+### Emoji Suggestions [GET /v1/emoji/suggestions{?text}]
+
+Returns list of emoji suggestions for a given text of the post
+
++ Parameters
+
+    + text (string, `Why robots may soon steal all manufacturing jobs â but itâs not all bad news`) ... Text of the post
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "result": true,
+                "code": 200,
+                "message": "OK",
+                "emojis": [
+                    "ð¤",
+                    "ð",
+                    "â"
+                ]
+            }
+
+
+### Auto-Emojify [GET /v1/emoji/auto-emojify{?text}]
+
+Returns text of the post with emoji added
+
++ Parameters
+
+    + text (string, `Why robots may soon steal all manufacturing jobs â but itâs not all bad news`) ... Text of the post
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "result": true,
+                "code": 200,
+                "message": "OK",
+                "text": "Why robots may soon steal all manufacturing jobs â but itâs not all bad news ð¤ðâ"
+            }
+
+
+## Influencers section [/v1/influencers/]
+
+### Influencers for a Hashtag [GET /v1/influencers/hashtag/{hashtag}]
+
+Returns list of Twitter influencers for a given hashtag
+
++ Parameters
+
+    + hashtag (string, `SocialMedia`) ... Hashtag without # mark
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "result": true,
+                "code": 200,
+                "message": "OK",
+                "hashtag": "SocialMedia",
+                "influencers": [
+                    {
+                        "username": "NikaStewart",
+                        "photo": "https://pbs.twimg.com/profile_images/511579120283574272/68Pc9fCX.jpeg",
+                        "followers": 76639
+                    },
+                    {
+                        "username": "GaryHyman",
+                        "photo": "https://pbs.twimg.com/profile_images/493067714567491586/ALC_thxD.png",
+                        "followers": 8975
+                    },
+                    {
+                        "username": "ThomasDavidson",
+                        "photo": "https://pbs.twimg.com/profile_images/65108942/TomCarPixsm.jpg",
+                        "followers": 4622
+                    },
+                    {
+                        "username": "PaulEllisUK",
+                        "photo": "https://pbs.twimg.com/profile_images/801024836210458624/wxq1DiSP.jpg",
+                        "followers": 3076
+                    },
+                    {
+                        "username": "VanessaLECOSSON",
+                        "photo": "https://pbs.twimg.com/profile_images/629937938047082496/t8kUQxk_.jpg",
+                        "followers": 2323
+                    },
+                    {
+                        "username": "authorsyoung",
+                        "photo": "https://pbs.twimg.com/profile_images/888340856461250560/Hrf4vWDe.jpg",
+                        "followers": 2258
+                    },
+                    {
+                        "username": "Resume911",
+                        "photo": "https://pbs.twimg.com/profile_images/2679509577/b4c254162af09eaece696f38550aebd8.png",
+                        "followers": 1070
+                    },
+                    {
+                        "username": "ricsur",
+                        "photo": "https://pbs.twimg.com/profile_images/832124874990690304/EW4MnNQi.jpg",
+                        "followers": 721
+                    },
+                    {
+                        "username": "domysocialmedia",
+                        "photo": "https://pbs.twimg.com/profile_images/838875194282426368/QrOTXF1I.jpg",
+                        "followers": 652
+                    },
+                    {
+                        "username": "TheBusyGal",
+                        "photo": "https://pbs.twimg.com/profile_images/887429241582657536/upG5Lr9n.jpg",
+                        "followers": 625
+                    }
+                ]
+            }
+
+
+## Images [/v1/images/]
+
+### Create Quote Image [GET /v1/images/quote{?quote,author,fontSize,quoteFont,quoteFontColor,authorFont,authorFontColor,enableHighlight,highlightColor,bgType,backgroundColor,gradientColor1,gradientColor2,gradientType,brandLogo}]
+
+Returns URL of an image created according to given parameters
+
++ Parameters
+
+    + quote (string, `If you love life, don't waste time, for time is what life is made up of`) ... Text of the quote
+    + author (string, `Bruce Lee`) ... Name of the author/source
+    + fontSize (integer, `60`) ... Font size for the quote (author font size is calculated automatically)
+    + quoteFont (string, `Lora`) ... Font-family used for quote text
+    + quoteFontColor (string, `#4f4f4f`) ... Font color of the quote text
+    + authorFont (string, `Lato Black`) ... Font-family used for author name
+    + authorFontColor (string, `#e5e5e5`) ... Font color of the author
+    + enableHighlight (integer, `1`) ... Enable highlight on quote text
+    + highlightColor (string, `#f0ea66`) ... Color used for highlight
+    + bgType (string, `gradient`) ... Background type (gradient/solid)
+    + backgroundColor (string, `#000000`) ... Background color for solid background type
+    + gradientType (string, `linear`) ... Type of gradient background (linear/radial)
+    + gradientColor1 (string, `#1ee691`) ... First color for gradient background type
+    + gradientColor2 (string, `#1ddad6`) ... Second color for gradient background type
+    + brandLogo (url, `https://cdn.ritekit.com/assets/img/common/made-with-ritekit-white.png`) ... URL of the brand logo
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "result": true,
+                "url": "https://media.ritekit.com/media/images/cc61f829-3647-4fb4-bb68-7de1e3c1479d.jpeg"
+            }
+
+
+## Link shortening [/v1/links/]
+
+### Shorten Link [GET /v1/link/short-link{?url,cta}]
+
+Returns a shorten link with a given CTA.
+
++ Parameters
+
+    + url (string, `https://ritekit.com`) ... URL
+    + cta (integer, `1`) ... cta id
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "result": true,
+                "url": "rite.ly/Xe4o",
+                "original": "https://ritekit.com",
+                "service": "rite.ly",
+                "ctaId": "1",
+                "limit": {
+                    "remaining": 0
+                }
+            }
+
+
+### List of CTAs [GET /v1/link/cta]
+
+Returns list of available CTA for current user. Requires each user to authenticate with RiteKit
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "result": true,
+                "list": [
+                    {
+                        "id": "bit.ly",
+                        "name": "Bit.ly",
+                        "code": "Bit.ly",
+                        "default": 0
+                    },
+                    {
+                        "id": 1,
+                        "name": "Default",
+                        "code": "DFLT",
+                        "default": 1
+                    }
+                ]
+            }
