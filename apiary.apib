@@ -113,7 +113,7 @@ Returns auto-hashtagged text of the post.
                 "result": true,
                 "code": 200,
                 "message": "OK",
-                "post": "Is artificial intelligence the #future of #CustomerService?"
+                "post": "Is #ArtificialIntelligence the future of #CustomerService?"
             }
 
 
@@ -129,6 +129,11 @@ Returns list of hashtag suggestions and their real-time stats for a given topic
 
 + Response 200 (application/json; charset=utf-8)
 
+    + Headers
+
+            Pragma: 
+            pragma: 
+
     + Body
 
             {
@@ -140,122 +145,13 @@ Returns list of hashtag suggestions and their real-time stats for a given topic
                     {
                         "hashtag": "seo",
                         "tag": "seo",
-                        "tweets": 1383,
-                        "exposure": 6463321,
-                        "retweets": 750,
-                        "images": 60.5929146,
-                        "links": 93.420105,
-                        "mentions": 6.3629789,
-                        "color": 3,
-                        "frequency": 9.986
-                    },
-                    {
-                        "hashtag": "marketing",
-                        "tag": "marketing",
-                        "tweets": 1992,
-                        "exposure": 17566846,
-                        "retweets": 620,
-                        "images": 39.5582314,
-                        "links": 90.1606445,
-                        "mentions": 19.026104,
-                        "color": 3,
-                        "frequency": 0.956
-                    },
-                    {
-                        "hashtag": "google",
-                        "tag": "google",
-                        "tweets": 500,
-                        "exposure": 1783683,
-                        "retweets": 212,
-                        "images": 51.5999985,
-                        "links": 92.4000015,
-                        "mentions": 8.3999996,
-                        "color": 3,
-                        "frequency": 0.908
-                    },
-                    {
-                        "hashtag": "website",
-                        "tag": "website",
-                        "tweets": 333,
-                        "exposure": 1750575,
-                        "retweets": 67,
-                        "images": 62.4624634,
-                        "links": 96.3963928,
-                        "mentions": 7.5075073,
-                        "color": 3,
-                        "frequency": 0.812
-                    },
-                    {
-                        "hashtag": "blog",
-                        "tag": "blog",
-                        "tweets": 662,
-                        "exposure": 4129362,
-                        "retweets": 121,
-                        "images": 35.9516602,
-                        "links": 96.9788513,
-                        "mentions": 10.7250757,
-                        "color": 3,
-                        "frequency": 0.717
-                    },
-                    {
-                        "hashtag": "wordpress",
-                        "tag": "wordpress",
-                        "tweets": 442,
-                        "exposure": 1271008,
-                        "retweets": 87,
-                        "images": 63.1221733,
-                        "links": 99.0950241,
-                        "mentions": 6.5610862,
-                        "color": 3,
-                        "frequency": 0.478
-                    },
-                    {
-                        "hashtag": "web",
-                        "tag": "web",
-                        "tweets": 271,
-                        "exposure": 485904,
-                        "retweets": 67,
-                        "images": 52.3985252,
-                        "links": 98.5239868,
-                        "mentions": 4.4280443,
-                        "color": 3,
-                        "frequency": 0.43
-                    },
-                    {
-                        "hashtag": "digitalmarketing",
-                        "tag": "digitalmarketing",
-                        "tweets": 346,
-                        "exposure": 2246708,
-                        "retweets": 375,
-                        "images": 27.7456646,
-                        "links": 84.3930664,
-                        "mentions": 14.4508667,
-                        "color": 3,
-                        "frequency": 0.43
-                    },
-                    {
-                        "hashtag": "webdesign",
-                        "tag": "webdesign",
-                        "tweets": 188,
-                        "exposure": 2333346,
-                        "retweets": 45,
-                        "images": 32.9787216,
-                        "links": 95.2127686,
-                        "mentions": 13.2978725,
-                        "color": 3,
-                        "frequency": 0.382
-                    },
-                    {
-                        "hashtag": "socialmedia",
-                        "tag": "socialmedia",
-                        "tweets": 929,
-                        "exposure": 11278025,
-                        "retweets": 571,
-                        "images": 26.4800854,
-                        "links": 88.3745956,
-                        "mentions": 23.3584499,
-                        "color": 3,
-                        "frequency": 0.382
+                        "tweets": 600,
+                        "exposure": 5217908,
+                        "retweets": 338,
+                        "images": 31.33333,
+                        "links": 98.0,
+                        "mentions": 14.66667,
+                        "color": 3
                     }
                 ]
             }
@@ -287,23 +183,23 @@ Returns real-time stats for up to 100 hashtags (updated hourly).
                     {
                         "hashtag": "jobs",
                         "tag": "jobs",
-                        "tweets": 2192,
-                        "exposure": 6251488,
-                        "retweets": 179,
-                        "images": 0.032390511000000004,
-                        "links": 0.994069366,
-                        "mentions": 0.028284671,
+                        "tweets": 2208,
+                        "exposure": 5046671,
+                        "retweets": 42,
+                        "images": 0.0303442,
+                        "links": 0.9981884,
+                        "mentions": 0.0076993,
                         "color": 3
                     },
                     {
                         "hashtag": "hello",
                         "tag": "hello",
-                        "tweets": 46,
-                        "exposure": 33075,
-                        "retweets": 100,
-                        "images": 0.369565201,
-                        "links": 0.717391281,
-                        "mentions": 0.08695652000000001,
+                        "tweets": 21,
+                        "exposure": 5254,
+                        "retweets": 12,
+                        "images": 0.5714286,
+                        "links": 0.3809524,
+                        "mentions": 0.1904762,
                         "color": 2
                     }
                 ],
@@ -328,6 +224,11 @@ Returns historical stats for a given hashtag from the last 30 days
 
 + Response 200 (application/json; charset=utf-8)
 
+    + Headers
+
+            Pragma: 
+            pragma: 
+
     + Body
 
             {
@@ -337,304 +238,334 @@ Returns historical stats for a given hashtag from the last 30 days
                 "hashtag": "job",
                 "data": [
                     {
-                        "date": "2017-07-02",
-                        "tweets": 122100,
-                        "retweets": 2400,
                         "links": 1.0,
-                        "images": 0.02,
-                        "mentions": 0.0,
                         "color": 3,
-                        "exposure": 91003500
-                    },
-                    {
-                        "date": "2017-07-03",
-                        "tweets": 154800,
-                        "retweets": 2600,
-                        "links": 1.0,
                         "images": 0.03,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 161241400
-                    },
-                    {
-                        "date": "2017-07-04",
-                        "tweets": 146200,
-                        "retweets": 3600,
-                        "links": 1.0,
-                        "images": 0.03,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 126351800
-                    },
-                    {
-                        "date": "2017-07-05",
-                        "tweets": 155000,
-                        "retweets": 4900,
-                        "links": 0.99,
-                        "images": 0.03,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 126678900
-                    },
-                    {
-                        "date": "2017-07-06",
-                        "tweets": 157400,
-                        "retweets": 7000,
-                        "links": 1.0,
-                        "images": 0.03,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 115540500
-                    },
-                    {
-                        "date": "2017-07-07",
-                        "tweets": 163800,
-                        "retweets": 3400,
-                        "links": 1.0,
-                        "images": 0.02,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 148924500
-                    },
-                    {
-                        "date": "2017-07-08",
-                        "tweets": 143300,
-                        "retweets": 3300,
-                        "links": 1.0,
-                        "images": 0.03,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 119823700
-                    },
-                    {
-                        "date": "2017-07-09",
-                        "tweets": 130900,
+                        "tweets": 153000,
+                        "tag": "job",
                         "retweets": 3100,
+                        "date": "2017-10-25",
+                        "mentions": 0.01,
+                        "exposure": 160471200
+                    },
+                    {
                         "links": 1.0,
+                        "color": 3,
                         "images": 0.02,
-                        "mentions": 0.0,
-                        "color": 3,
-                        "exposure": 133067200
-                    },
-                    {
-                        "date": "2017-07-10",
-                        "tweets": 140200,
-                        "retweets": 5300,
-                        "links": 1.0,
-                        "images": 0.03,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 129101400
-                    },
-                    {
-                        "date": "2017-07-11",
-                        "tweets": 153500,
-                        "retweets": 4900,
-                        "links": 1.0,
-                        "images": 0.04,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 132328100
-                    },
-                    {
-                        "date": "2017-07-12",
-                        "tweets": 154800,
-                        "retweets": 4200,
-                        "links": 1.0,
-                        "images": 0.03,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 135728800
-                    },
-                    {
-                        "date": "2017-07-13",
-                        "tweets": 150100,
-                        "retweets": 4200,
-                        "links": 1.0,
-                        "images": 0.02,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 117356400
-                    },
-                    {
-                        "date": "2017-07-14",
-                        "tweets": 149900,
-                        "retweets": 3700,
-                        "links": 1.0,
-                        "images": 0.03,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 127917200
-                    },
-                    {
-                        "date": "2017-07-15",
-                        "tweets": 140000,
-                        "retweets": 3300,
-                        "links": 1.0,
-                        "images": 0.02,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 123001600
-                    },
-                    {
-                        "date": "2017-07-16",
-                        "tweets": 140400,
-                        "retweets": 3700,
-                        "links": 1.0,
-                        "images": 0.02,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 98735200
-                    },
-                    {
-                        "date": "2017-07-17",
-                        "tweets": 132900,
-                        "retweets": 2900,
-                        "links": 1.0,
-                        "images": 0.04,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 178846200
-                    },
-                    {
-                        "date": "2017-07-18",
-                        "tweets": 144400,
-                        "retweets": 4900,
-                        "links": 1.0,
-                        "images": 0.03,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 207485900
-                    },
-                    {
-                        "date": "2017-07-19",
-                        "tweets": 147700,
-                        "retweets": 5400,
-                        "links": 1.0,
-                        "images": 0.03,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 144647600
-                    },
-                    {
-                        "date": "2017-07-20",
-                        "tweets": 153700,
-                        "retweets": 4000,
-                        "links": 1.0,
-                        "images": 0.02,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 146297300
-                    },
-                    {
-                        "date": "2017-07-21",
-                        "tweets": 159300,
-                        "retweets": 4700,
-                        "links": 1.0,
-                        "images": 0.03,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 151610900
-                    },
-                    {
-                        "date": "2017-07-22",
-                        "tweets": 142100,
-                        "retweets": 3200,
-                        "links": 1.0,
-                        "images": 0.01,
-                        "mentions": 0.0,
-                        "color": 3,
-                        "exposure": 201673600
-                    },
-                    {
-                        "date": "2017-07-23",
-                        "tweets": 137500,
-                        "retweets": 3900,
-                        "links": 1.0,
-                        "images": 0.01,
-                        "mentions": 0.0,
-                        "color": 3,
-                        "exposure": 124774800
-                    },
-                    {
-                        "date": "2017-07-24",
-                        "tweets": 137500,
-                        "retweets": 4600,
-                        "links": 1.0,
-                        "images": 0.03,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 138430200
-                    },
-                    {
-                        "date": "2017-07-25",
-                        "tweets": 150800,
-                        "retweets": 4200,
-                        "links": 1.0,
-                        "images": 0.02,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 151774000
-                    },
-                    {
-                        "date": "2017-07-26",
-                        "tweets": 147100,
-                        "retweets": 3800,
-                        "links": 1.0,
-                        "images": 0.02,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 127296100
-                    },
-                    {
-                        "date": "2017-07-27",
-                        "tweets": 149300,
-                        "retweets": 5500,
-                        "links": 1.0,
-                        "images": 0.02,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 133474400
-                    },
-                    {
-                        "date": "2017-07-28",
                         "tweets": 151000,
-                        "retweets": 4400,
+                        "tag": "job",
+                        "retweets": 4100,
+                        "date": "2017-10-26",
+                        "mentions": 0.01,
+                        "exposure": 109069700
+                    },
+                    {
                         "links": 1.0,
+                        "color": 3,
+                        "images": 0.03,
+                        "tweets": 148800,
+                        "tag": "job",
+                        "retweets": 3500,
+                        "date": "2017-10-27",
+                        "mentions": 0.01,
+                        "exposure": 137699400
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.03,
+                        "tweets": 137300,
+                        "tag": "job",
+                        "retweets": 4600,
+                        "date": "2017-10-28",
+                        "mentions": 0.01,
+                        "exposure": 235051400
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
                         "images": 0.02,
-                        "mentions": 0.01,
-                        "color": 3,
-                        "exposure": 143891400
+                        "tweets": 134500,
+                        "tag": "job",
+                        "retweets": 3500,
+                        "date": "2017-10-29",
+                        "mentions": 0.0,
+                        "exposure": 121564000
                     },
                     {
-                        "date": "2017-07-29",
-                        "tweets": 71800,
-                        "retweets": 2700,
                         "links": 1.0,
-                        "images": 0.03,
-                        "mentions": 0.01,
                         "color": 3,
-                        "exposure": 46194500
+                        "images": 0.02,
+                        "tweets": 143000,
+                        "tag": "job",
+                        "retweets": 3600,
+                        "date": "2017-10-30",
+                        "mentions": 0.01,
+                        "exposure": 128854800
                     },
                     {
-                        "date": "2017-07-30",
-                        "tweets": 128400,
-                        "retweets": 2000,
                         "links": 1.0,
-                        "images": 0.03,
-                        "mentions": 0.01,
                         "color": 3,
-                        "exposure": 100722500
+                        "images": 0.02,
+                        "tweets": 140800,
+                        "tag": "job",
+                        "retweets": 4100,
+                        "date": "2017-10-31",
+                        "mentions": 0.01,
+                        "exposure": 132086500
                     },
                     {
-                        "date": "2017-07-31",
-                        "tweets": 136700,
+                        "links": 0.99,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 145400,
+                        "tag": "job",
+                        "retweets": 3400,
+                        "date": "2017-11-01",
+                        "mentions": 0.01,
+                        "exposure": 131824000
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 155700,
+                        "tag": "job",
+                        "retweets": 3600,
+                        "date": "2017-11-02",
+                        "mentions": 0.01,
+                        "exposure": 184530800
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 153100,
+                        "tag": "job",
+                        "retweets": 4200,
+                        "date": "2017-11-03",
+                        "mentions": 0.01,
+                        "exposure": 144650100
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 137800,
+                        "tag": "job",
                         "retweets": 4700,
-                        "links": 1.0,
-                        "images": 0.03,
+                        "date": "2017-11-04",
                         "mentions": 0.01,
+                        "exposure": 109752200
+                    },
+                    {
+                        "links": 1.0,
                         "color": 3,
-                        "exposure": 192526400
+                        "images": 0.02,
+                        "tweets": 136400,
+                        "tag": "job",
+                        "retweets": 3600,
+                        "date": "2017-11-05",
+                        "mentions": 0.01,
+                        "exposure": 135693300
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 151500,
+                        "tag": "job",
+                        "retweets": 3400,
+                        "date": "2017-11-06",
+                        "mentions": 0.01,
+                        "exposure": 156251100
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 157300,
+                        "tag": "job",
+                        "retweets": 4500,
+                        "date": "2017-11-07",
+                        "mentions": 0.01,
+                        "exposure": 172000300
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 155800,
+                        "tag": "job",
+                        "retweets": 3800,
+                        "date": "2017-11-08",
+                        "mentions": 0.01,
+                        "exposure": 179755400
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 164300,
+                        "tag": "job",
+                        "retweets": 2800,
+                        "date": "2017-11-09",
+                        "mentions": 0.01,
+                        "exposure": 146006500
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.03,
+                        "tweets": 153500,
+                        "tag": "job",
+                        "retweets": 2700,
+                        "date": "2017-11-10",
+                        "mentions": 0.01,
+                        "exposure": 109453700
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.01,
+                        "tweets": 144800,
+                        "tag": "job",
+                        "retweets": 1800,
+                        "date": "2017-11-11",
+                        "mentions": 0.01,
+                        "exposure": 103181700
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 40200,
+                        "tag": "job",
+                        "retweets": 800,
+                        "date": "2017-11-12",
+                        "mentions": 0.01,
+                        "exposure": 67415600
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 115200,
+                        "tag": "job",
+                        "retweets": 2400,
+                        "date": "2017-11-13",
+                        "mentions": 0.01,
+                        "exposure": 102777900
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.03,
+                        "tweets": 120400,
+                        "tag": "job",
+                        "retweets": 2500,
+                        "date": "2017-11-14",
+                        "mentions": 0.01,
+                        "exposure": 100626300
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.03,
+                        "tweets": 148200,
+                        "tag": "job",
+                        "retweets": 2300,
+                        "date": "2017-11-15",
+                        "mentions": 0.01,
+                        "exposure": 103573900
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 153000,
+                        "tag": "job",
+                        "retweets": 3900,
+                        "date": "2017-11-16",
+                        "mentions": 0.01,
+                        "exposure": 104332600
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.03,
+                        "tweets": 124000,
+                        "tag": "job",
+                        "retweets": 2600,
+                        "date": "2017-11-17",
+                        "mentions": 0.01,
+                        "exposure": 114890500
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.03,
+                        "tweets": 116400,
+                        "tag": "job",
+                        "retweets": 1900,
+                        "date": "2017-11-18",
+                        "mentions": 0.01,
+                        "exposure": 78934500
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.03,
+                        "tweets": 120400,
+                        "tag": "job",
+                        "retweets": 2600,
+                        "date": "2017-11-19",
+                        "mentions": 0.01,
+                        "exposure": 125604100
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.03,
+                        "tweets": 128300,
+                        "tag": "job",
+                        "retweets": 3400,
+                        "date": "2017-11-20",
+                        "mentions": 0.01,
+                        "exposure": 157730700
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 130000,
+                        "tag": "job",
+                        "retweets": 3100,
+                        "date": "2017-11-21",
+                        "mentions": 0.0,
+                        "exposure": 109622600
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.02,
+                        "tweets": 111600,
+                        "tag": "job",
+                        "retweets": 1700,
+                        "date": "2017-11-22",
+                        "mentions": 0.01,
+                        "exposure": 85755200
+                    },
+                    {
+                        "links": 1.0,
+                        "color": 3,
+                        "images": 0.03,
+                        "tweets": 131400,
+                        "tag": "job",
+                        "retweets": 3300,
+                        "date": "2017-11-23",
+                        "mentions": 0.01,
+                        "exposure": 189899700
                     }
                 ],
                 "color": [
@@ -659,6 +590,11 @@ Returns list of hashtags currently trending on Twitter
 
 + Response 200 (application/json; charset=utf-8)
 
+    + Headers
+
+            Pragma: 
+            pragma: 
+
     + Body
 
             {
@@ -667,193 +603,193 @@ Returns list of hashtags currently trending on Twitter
                 "code": 200,
                 "tags": [
                     {
-                        "tag": "rayito",
-                        "tweets": 6758,
-                        "retweets": 1359,
-                        "exposure": 1631062,
-                        "links": 0.06777,
-                        "photos": 0.03759,
-                        "mentions": 0.95132,
+                        "tag": "blackfriday",
+                        "tweets": 6704,
+                        "retweets": 10025,
+                        "exposure": 122017712,
+                        "links": 0.6537888,
+                        "photos": 0.2045048,
+                        "mentions": 0.2131563,
                         "color": 3
                     },
                     {
-                        "tag": "caelitrendy",
-                        "tweets": 5733,
-                        "retweets": 450,
-                        "exposure": 1829783,
-                        "links": 0.0014,
-                        "photos": 0.0014,
-                        "mentions": 0.00366,
-                        "color": 3
-                    },
-                    {
-                        "tag": "isabellacastillo",
-                        "tweets": 5492,
-                        "retweets": 216,
-                        "exposure": 1770112,
-                        "links": 0.00218,
-                        "photos": 0.00528,
-                        "mentions": 0.00218,
-                        "color": 3
-                    },
-                    {
-                        "tag": "dannapaola",
-                        "tweets": 5321,
-                        "retweets": 437,
-                        "exposure": 1517079,
-                        "links": 0.00319,
-                        "photos": 0.00075,
-                        "mentions": 0.00226,
-                        "color": 3
-                    },
-                    {
-                        "tag": "losrules",
-                        "tweets": 5312,
-                        "retweets": 434,
-                        "exposure": 1573025,
-                        "links": 0.00395,
-                        "photos": 0.00151,
-                        "mentions": 0.00075,
+                        "tag": "happythanksgiving",
+                        "tweets": 5712,
+                        "retweets": 9184,
+                        "exposure": 51914008,
+                        "links": 0.4114146,
+                        "photos": 0.327556,
+                        "mentions": 0.1771709,
                         "color": 3
                     },
                     {
                         "tag": "job",
-                        "tweets": 5258,
-                        "retweets": 188,
-                        "exposure": 7774871,
-                        "links": 0.99772,
-                        "photos": 0.0348,
-                        "mentions": 0.01103,
-                        "color": 3
-                    },
-                    {
-                        "tag": "durodedomar",
-                        "tweets": 4992,
-                        "retweets": 429,
-                        "exposure": 1385283,
-                        "links": 0.0016,
-                        "photos": 0.0008,
-                        "mentions": 0.0016,
-                        "color": 3
-                    },
-                    {
-                        "tag": "trecru",
-                        "tweets": 4879,
-                        "retweets": 9,
-                        "exposure": 97225,
-                        "links": 1.0,
-                        "photos": 0.99918,
-                        "mentions": 0.0,
+                        "tweets": 5438,
+                        "retweets": 179,
+                        "exposure": 5492292,
+                        "links": 0.9990805,
+                        "photos": 0.0283192,
+                        "mentions": 0.0031261,
                         "color": 3
                     },
                     {
                         "tag": "hadith",
-                        "tweets": 4754,
-                        "retweets": 54,
-                        "exposure": 4558750,
-                        "links": 0.0,
-                        "photos": 0.0,
+                        "tweets": 5096,
+                        "retweets": 104,
+                        "exposure": 7558725,
+                        "links": 0.0007849,
+                        "photos": 0.0007849,
                         "mentions": 0.0,
                         "color": 3
                     },
                     {
-                        "tag": "sofiareyes",
-                        "tweets": 4625,
-                        "retweets": 554,
-                        "exposure": 1793150,
-                        "links": 0.00368,
-                        "photos": 0.00454,
-                        "mentions": 0.00173,
+                        "tag": "ariasharrystyles",
+                        "tweets": 4792,
+                        "retweets": 8846,
+                        "exposure": 5989358,
+                        "links": 0.1435726,
+                        "photos": 0.1087229,
+                        "mentions": 0.4252922,
+                        "color": 3
+                    },
+                    {
+                        "tag": "mtvstars",
+                        "tweets": 4683,
+                        "retweets": 192,
+                        "exposure": 541196,
+                        "links": 0.9822763,
+                        "photos": 0.0,
+                        "mentions": 0.0036302,
                         "color": 3
                     },
                     {
                         "tag": "newprofilepic",
-                        "tweets": 4617,
-                        "retweets": 2012,
-                        "exposure": 6187642,
-                        "links": 0.0026,
-                        "photos": 0.99718,
-                        "mentions": 0.01906,
-                        "color": 3
-                    },
-                    {
-                        "tag": "llegastetu",
-                        "tweets": 4412,
-                        "retweets": 534,
-                        "exposure": 1722192,
-                        "links": 0.00385,
-                        "photos": 0.00385,
-                        "mentions": 0.00181,
-                        "color": 3
-                    },
-                    {
-                        "tag": "kcacolombia",
-                        "tweets": 4292,
-                        "retweets": 4875,
-                        "exposure": 3473008,
-                        "links": 0.33108,
-                        "photos": 0.06407,
-                        "mentions": 0.2281,
-                        "color": 3
-                    },
-                    {
-                        "tag": "army",
-                        "tweets": 4288,
-                        "retweets": 8950,
-                        "exposure": 820775,
-                        "links": 0.09422,
-                        "photos": 0.08745,
-                        "mentions": 0.14762,
-                        "color": 3
-                    },
-                    {
-                        "tag": "news",
-                        "tweets": 4262,
-                        "retweets": 1171,
-                        "exposure": 27098858,
-                        "links": 0.9404,
-                        "photos": 0.16917,
-                        "mentions": 0.0596,
-                        "color": 3
-                    },
-                    {
-                        "tag": "giveaway",
-                        "tweets": 4138,
-                        "retweets": 1870,
-                        "exposure": 3763296,
-                        "links": 0.98574,
-                        "photos": 0.02827,
-                        "mentions": 0.39077,
-                        "color": 3
-                    },
-                    {
-                        "tag": "quran",
-                        "tweets": 3900,
-                        "retweets": 192,
-                        "exposure": 6513488,
-                        "links": 0.05231,
-                        "photos": 0.0,
-                        "mentions": 0.00103,
+                        "tweets": 4454,
+                        "retweets": 2200,
+                        "exposure": 4334317,
+                        "links": 0.0017961,
+                        "photos": 0.9982039,
+                        "mentions": 0.0121239,
                         "color": 3
                     },
                     {
                         "tag": "hiring",
-                        "tweets": 3817,
-                        "retweets": 125,
-                        "exposure": 2650117,
+                        "tweets": 4225,
+                        "retweets": 67,
+                        "exposure": 4363421,
                         "links": 1.0,
-                        "photos": 0.00445,
-                        "mentions": 0.0021,
+                        "photos": 0.0089941,
+                        "mentions": 0.0059172,
                         "color": 3
                     },
                     {
-                        "tag": "michaelronda",
-                        "tweets": 3692,
-                        "retweets": 762,
-                        "exposure": 1489250,
-                        "links": 0.00677,
-                        "photos": 0.00569,
-                        "mentions": 0.00325,
+                        "tag": "boxluansantana10anos",
+                        "tweets": 3633,
+                        "retweets": 446,
+                        "exposure": 11793633,
+                        "links": 0.0803743,
+                        "photos": 0.0195431,
+                        "mentions": 0.2557115,
+                        "color": 3
+                    },
+                    {
+                        "tag": "ad",
+                        "tweets": 3471,
+                        "retweets": 358,
+                        "exposure": 7265592,
+                        "links": 0.97724,
+                        "photos": 0.0959378,
+                        "mentions": 0.04552,
+                        "color": 3
+                    },
+                    {
+                        "tag": "news",
+                        "tweets": 3421,
+                        "retweets": 987,
+                        "exposure": 30332321,
+                        "links": 0.963461,
+                        "photos": 0.1584332,
+                        "mentions": 0.0561239,
+                        "color": 3
+                    },
+                    {
+                        "tag": "quran",
+                        "tweets": 3400,
+                        "retweets": 212,
+                        "exposure": 8032954,
+                        "links": 0.0552941,
+                        "photos": 0.0035294,
+                        "mentions": 0.0035294,
+                        "color": 3
+                    },
+                    {
+                        "tag": "trecru",
+                        "tweets": 3200,
+                        "retweets": 17,
+                        "exposure": 72458,
+                        "links": 1.0,
+                        "photos": 1.0,
+                        "mentions": 0.0,
+                        "color": 3
+                    },
+                    {
+                        "tag": "tuitutil",
+                        "tweets": 3046,
+                        "retweets": 21,
+                        "exposure": 6195338,
+                        "links": 1.0,
+                        "photos": 0.0013132,
+                        "mentions": 0.1421536,
+                        "color": 3
+                    },
+                    {
+                        "tag": "rt",
+                        "tweets": 2979,
+                        "retweets": 4009,
+                        "exposure": 47011650,
+                        "links": 0.8405505,
+                        "photos": 0.1285666,
+                        "mentions": 0.2349782,
+                        "color": 3
+                    },
+                    {
+                        "tag": "np",
+                        "tweets": 2588,
+                        "retweets": 1054,
+                        "exposure": 19059058,
+                        "links": 0.7874807,
+                        "photos": 0.070711,
+                        "mentions": 0.3203246,
+                        "color": 3
+                    },
+                    {
+                        "tag": "indonesia",
+                        "tweets": 2446,
+                        "retweets": 14304,
+                        "exposure": 2478625,
+                        "links": 0.1447261,
+                        "photos": 0.1210139,
+                        "mentions": 0.1054783,
+                        "color": 3
+                    },
+                    {
+                        "tag": "music",
+                        "tweets": 2283,
+                        "retweets": 559,
+                        "exposure": 54113471,
+                        "links": 0.9290407,
+                        "photos": 0.1060009,
+                        "mentions": 0.1533071,
+                        "color": 3
+                    },
+                    {
+                        "tag": "jobs",
+                        "tweets": 2208,
+                        "retweets": 42,
+                        "exposure": 5046671,
+                        "links": 0.9981884,
+                        "photos": 0.0303442,
+                        "mentions": 0.0076993,
                         "color": 3
                     }
                 ]
@@ -924,6 +860,11 @@ Returns list of Twitter influencers for a given hashtag
 
 + Response 200 (application/json; charset=utf-8)
 
+    + Headers
+
+            Pragma: 
+            pragma: 
+
     + Body
 
             {
@@ -933,54 +874,54 @@ Returns list of Twitter influencers for a given hashtag
                 "hashtag": "SocialMedia",
                 "influencers": [
                     {
-                        "username": "ExploreWeb2dot0",
-                        "photo": "https://pbs.twimg.com/profile_images/577832064130527233/dswb_ru9.png",
-                        "followers": 8820
+                        "username": "NancyBadillo13",
+                        "photo": "https://pbs.twimg.com/profile_images/3609515388/762d0403bdaa8036f6ae88626da0b370.png",
+                        "followers": 274453
                     },
                     {
-                        "username": "elainebeare",
-                        "photo": "https://pbs.twimg.com/profile_images/575758047663947776/e_-Fjs_0.png",
-                        "followers": 7257
+                        "username": "MHiesboeck",
+                        "photo": "https://pbs.twimg.com/profile_images/880555785654292481/6lT-k7tn.jpg",
+                        "followers": 45753
                     },
                     {
-                        "username": "postoff25",
-                        "photo": "https://pbs.twimg.com/profile_images/786249994437292032/GzTZPfg4.jpg",
-                        "followers": 4981
+                        "username": "quentinmasson57",
+                        "photo": "https://pbs.twimg.com/profile_images/780071018320760832/42BQ4wXg.jpg",
+                        "followers": 12579
                     },
                     {
-                        "username": "GaryKnox",
-                        "photo": "https://pbs.twimg.com/profile_images/378800000729732456/5e3a3f1fffa77cd245d4c0eeaccb8a44.png",
-                        "followers": 3318
+                        "username": "Transparent_Red",
+                        "photo": "https://pbs.twimg.com/profile_images/692343275848667136/F-W4dKUU.jpg",
+                        "followers": 6883
                     },
                     {
-                        "username": "robertoalire",
-                        "photo": "https://pbs.twimg.com/profile_images/713840111046291456/Wt1_5w1N.jpg",
-                        "followers": 2747
+                        "username": "BLAMPartners",
+                        "photo": "https://pbs.twimg.com/profile_images/831630430403231745/71XigzTJ.jpg",
+                        "followers": 5354
                     },
                     {
-                        "username": "_SEO_Simple_",
-                        "photo": "https://pbs.twimg.com/profile_images/793979651861475329/uvU5aJjk.jpg",
-                        "followers": 752
+                        "username": "TwitProBook",
+                        "photo": "https://pbs.twimg.com/profile_images/647767475136761856/0QcvedHT.png",
+                        "followers": 3461
                     },
                     {
-                        "username": "doublemacc",
-                        "photo": "https://pbs.twimg.com/profile_images/868434989175668737/5lPmTmAc.jpg",
-                        "followers": 636
+                        "username": "lewebfrancais33",
+                        "photo": "https://pbs.twimg.com/profile_images/820916557920567302/i1wQFfqg.jpg",
+                        "followers": 1299
                     },
                     {
-                        "username": "BloggerAu",
-                        "photo": "https://pbs.twimg.com/profile_images/538969297859538945/PH_ogi5q.png",
-                        "followers": 355
+                        "username": "prkmmcom",
+                        "photo": "https://pbs.twimg.com/profile_images/890165745094709248/4OxXNo1w.jpg",
+                        "followers": 886
                     },
                     {
-                        "username": "PRvonHarsdorf",
-                        "photo": "https://pbs.twimg.com/profile_images/1124965553/M_PRvHarsdorf_Logo_RGB_frei_klein.jpg",
-                        "followers": 330
+                        "username": "2bintl",
+                        "photo": "https://pbs.twimg.com/profile_images/484647758209355776/Jcu4OLFy.png",
+                        "followers": 834
                     },
                     {
-                        "username": "YIE_RA",
-                        "photo": "https://pbs.twimg.com/profile_images/378800000184644934/12b755ce0eabd5b222428da63347028c.jpeg",
-                        "followers": 312
+                        "username": "YIE_RA_1",
+                        "photo": "https://pbs.twimg.com/profile_images/378800000182262579/12b755ce0eabd5b222428da63347028c.jpeg",
+                        "followers": 244
                     }
                 ]
             }
@@ -1018,8 +959,23 @@ Returns URL of an image created from text according to given style parameters
 
             {
                 "result": true,
-                "url": "https://media.ritekit.com/media/images/bf2509a8-4419-46d0-b630-91488249c873.jpeg"
+                "url": "https://media.ritekit.com/media/images/82a4d5be-6981-4913-8018-94161a5e190e.jpeg"
             }
+
+
+### Animate Image [GET /v1/images/animate{?url,type}]
+
+Returns URL of an animated GIF.
+
++ Parameters
+
+    + url (string, `https://jpeg.org/images/jpeg-home.jpg`) ... URL of the company
+    + type (string, `glint`) ... URL of the company
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (image/gif)
+
 
 
 ### Company Logo [GET /v1/images/logo{?domain}]
@@ -1045,7 +1001,7 @@ Returns a shorten link with a given CTA.
 + Parameters
 
     + url (string, `https://ritekit.com`) ... URL
-    + cta (integer, `1`) ... cta id
+    + cta (integer, `6530`) ... cta id
 
 + Request (text/html; charset=utf-8)
 
@@ -1055,12 +1011,12 @@ Returns a shorten link with a given CTA.
 
             {
                 "result": true,
-                "url": "rite.ly/Xe4o",
+                "url": "rite.ly/jr6e",
                 "original": "https://ritekit.com",
                 "service": "rite.ly",
-                "ctaId": "1",
+                "ctaId": "6530",
                 "limit": {
-                    "remaining": 5000
+                    "remaining": 1000
                 }
             }
 
@@ -1085,10 +1041,10 @@ Returns list of available CTA for current user. Requires each user to authentica
                         "default": 0
                     },
                     {
-                        "id": 1,
-                        "name": "Default",
-                        "code": "DFLT",
-                        "default": 1
+                        "id": 2163,
+                        "name": "test",
+                        "code": "test",
+                        "default": 0
                     }
                 ]
             }
