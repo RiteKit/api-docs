@@ -20,7 +20,7 @@ Authentication uses standard OAuth 2.0 process
 
 You can directly connect to our API using your **client ID** by sending it as a GET query parameter. This option is simple (no need for oAuth) but it should be used only in case the Client ID is not exposed publicly.
 
-    GET  https://api.ritekit.com/v1/stats/multiple-hashtags?tags=php?client_id=292c6912e7710c838347ae178b4a
+    GET  https://api.ritekit.com/v1/stats/basic/php?client_id=292c6912e7710c838347ae178b4a
 
 
 #### B) Using Access token (oAuth 2.0)
@@ -30,7 +30,7 @@ Once you have valid Access token, you can access our API by sending the token in
 
 Or
 
-    GET  https://api.ritekit.com/v1/stats/multiple-hashtags?tags=php?access_token=292c6912e7710c838347ae178b4a
+    GET  https://api.ritekit.com/v1/stats/basic/php?access_token=292c6912e7710c838347ae178b4a
 
 
 ## oAuth 2.0
@@ -131,8 +131,8 @@ Returns list of hashtag suggestions and their real-time stats for a given topic
 
     + Headers
 
-            Pragma: 
-            pragma: 
+            Pragma:
+            pragma:
 
     + Body
 
@@ -226,8 +226,8 @@ Returns historical stats for a given hashtag from the last 30 days
 
     + Headers
 
-            Pragma: 
-            pragma: 
+            Pragma:
+            pragma:
 
     + Body
 
@@ -592,8 +592,8 @@ Returns list of hashtags currently trending on Twitter
 
     + Headers
 
-            Pragma: 
-            pragma: 
+            Pragma:
+            pragma:
 
     + Body
 
@@ -862,8 +862,8 @@ Returns list of Twitter influencers for a given hashtag
 
     + Headers
 
-            Pragma: 
-            pragma: 
+            Pragma:
+            pragma:
 
     + Body
 
@@ -950,6 +950,7 @@ Returns URL of an image created from text according to given style parameters
     + gradientColor1 (string, `#1ee691`) ... First color for gradient background type
     + gradientColor2 (string, `#1ddad6`) ... Second color for gradient background type
     + brandLogo (url, `https://cdn.ritekit.com/assets/img/common/made-with-ritekit-white.png`) ... URL of the brand logo
+    + animation (string, `glint`) ... Animation type: none, rays, glint, circle
 
 + Request (text/html; charset=utf-8)
 
