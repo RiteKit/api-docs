@@ -992,6 +992,33 @@ Returns a company logo based on website domain. If the logo is not in our databa
 + Response 200 (image/png)
 
 
+## Instagram [/v2/instagram/]
+
+### Hashtags cleaner [GET /v2/instagram/hashtags-cleaner{?post}]
+
+Remove banned hashtags before posting to Instagram
+
++ Parameters
+
+    + post (string, `#instaphotography #instabeauty #instagirls #instanature #instagirl #photography #beauty #girls #nature #girl #sky #water #lady #ladies #woman #women #photograph #photographs #beauties #sunlight #sitting #waters #skies #sit #photographies`) ... post
+
++ Request (text/html; charset=utf-8)
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "result": true,
+                "message": "OK",
+                "post": "#instaphotography #instabeauty #instagirls #instanature #photography #beauty #girls #nature #girl #sky #water #lady #ladies #photograph #photographs #beauties #sunlight #sitting #waters #skies #sit #photographies",
+                "bannedHashtags": [
+                    "#instagirl",
+                    "#woman",
+                    "#women"
+                ]
+            }
+
 
 ## Link shortening [/v1/links/]
 
