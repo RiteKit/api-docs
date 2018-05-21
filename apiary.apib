@@ -95,13 +95,15 @@ Every Access token has a lifetime. You can use Refresh token to request a new Ac
 
 ## Hashtags [/v1/stats/]
 
-### Auto-Hashtag [GET /v1/stats/auto-hashtag?post={post}]
+### Auto-Hashtag [GET /v1/stats/auto-hashtag?post={post,maxHashtags,hashtagPosition}]
 
 Returns auto-hashtagged text of the post.
 
 + Parameters
 
     + post (string, `Is artificial intelligence the future of customer service?`) ... Text of the post
+    + maxHashtags = `2` (optional, integer) ... Max number of hashtags.
+    + hashtagPosition = `auto` (optional, string) ... Position of hashtags: end => at the end, auto => anywhere
 
 + Request (text/html; charset=utf-8)
 
