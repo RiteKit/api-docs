@@ -95,7 +95,7 @@ Every Access token has a lifetime. You can use Refresh token to request a new Ac
 
 ## Hashtags [/v1/stats/]
 
-### Auto-Hashtag [GET /v1/stats/auto-hashtag?post={post,maxHashtags,hashtagPosition}]
+### Auto-Hashtag [GET /v1/stats/auto-hashtag{?post,maxHashtags,hashtagPosition}]
 
 Returns auto-hashtagged text of the post.
 
@@ -130,11 +130,6 @@ Returns list of hashtag suggestions for a single-word topic or a shorter text up
 + Request (text/html; charset=utf-8)
 
 + Response 200 (application/json; charset=utf-8)
-
-    + Headers
-
-            Pragma:
-            pragma:
 
     + Body
 
@@ -225,11 +220,6 @@ Returns historical stats for a given hashtag from the last 30 days
 + Request (text/html; charset=utf-8)
 
 + Response 200 (application/json; charset=utf-8)
-
-    + Headers
-
-            Pragma:
-            pragma:
 
     + Body
 
@@ -592,11 +582,6 @@ Returns list of hashtags currently trending on Twitter
 
 + Response 200 (application/json; charset=utf-8)
 
-    + Headers
-
-            Pragma:
-            pragma:
-
     + Body
 
             {
@@ -862,11 +847,6 @@ Returns list of Twitter influencers for a given hashtag
 
 + Response 200 (application/json; charset=utf-8)
 
-    + Headers
-
-            Pragma:
-            pragma:
-
     + Body
 
             {
@@ -931,7 +911,7 @@ Returns list of Twitter influencers for a given hashtag
 
 ## Images [/v1/images/]
 
-### Text to Image [GET /v1/images/quote{?quote,author,fontSize,quoteFont,quoteFontColor,authorFont,authorFontColor,enableHighlight,highlightColor,bgType,backgroundColor,gradientColor1,gradientColor2,gradientType,brandLogo}]
+### Text to Image [GET /v1/images/quote{?quote,author,fontSize,quoteFont,quoteFontColor,authorFont,authorFontColor,enableHighlight,highlightColor,bgType,backgroundColor,gradientColor1,gradientColor2,gradientType,brandLogo,animation,showQuoteMark}]
 
 Returns URL of an image created from text according to given style parameters
 
